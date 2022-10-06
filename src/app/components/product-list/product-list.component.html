@@ -1,0 +1,30 @@
+<section class="section">
+  <div class="container">
+    <div class="columns">
+
+        <div *ngFor="let tempProduct of products" class="column has-text-centered ml-4">
+
+          <div class="product-box">
+
+            <a routerLink="/products/{{ tempProduct.id }}">
+              <img src="{{ tempProduct.imageUrl }}" class="img-responsive" alt="product image">
+            </a>
+
+            <a routerLink="/products/{{ tempProduct.id }}">
+              <h1 class="is-size-5 title">{{ tempProduct.name }}</h1>
+            </a>
+
+            <div class="is-size-6">{{ tempProduct.unitPrice | currency: 'USD' }}</div>
+          </div>
+
+        </div>
+        <!-- if products empty then display a message -->
+        <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+          No Products Found.
+        </div>
+
+    </div>
+  </div>
+</section>
+
+
