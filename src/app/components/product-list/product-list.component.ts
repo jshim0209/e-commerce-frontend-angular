@@ -31,6 +31,14 @@ export class ProductListComponent implements OnInit {
     this.route.paramMap.subscribe(() => {
       this.listProducts();
     })
+
+  }
+
+  pagination() {
+    const previousBtn = document.querySelector('#pagination-previous');
+    const currentBtn = document.querySelector('.pagination-list.is-current');
+
+    previousBtn?.classList.toggle('is-disabled');
   }
 
   listProducts() {
@@ -74,7 +82,7 @@ export class ProductListComponent implements OnInit {
       // get the "id" param string. convert string to a number using the "+" symbol
       this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;
     } else {
-      // not category id available ... default to category id 1
+      // no category id available ... default to category id 1
       this.currentCategoryId = 1;
     }
 
