@@ -22,7 +22,7 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
