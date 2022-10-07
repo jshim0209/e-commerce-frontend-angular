@@ -9,6 +9,10 @@ import { SearchComponent } from './components/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +21,16 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
     NavbarComponent,
     SearchComponent,
     ProductDetailsComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    CartStatusComponent,
+    CheckoutComponent,
+    CartDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

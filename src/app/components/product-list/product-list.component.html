@@ -30,12 +30,31 @@
 
     </div>
 
-    <div class="section">
+    <div class="block has-text-centered is-family-code title">
       <div class="container">
-        <nav class="pagination" role="navigation" aria-label="pagination">
-          <a href="/" class="pagination-previous">Previous</a>
-          <a href="/" class="pagination-next">Next</a>
-        </nav>
+        <div class="pagination">
+          <ngb-pagination [(page)]="pageNumber"
+                          [pageSize]="pageSize"
+                          [collectionSize]="totalElements"
+                          [maxSize]="5"
+                          [boundaryLinks]="true"
+                          (pageChange)="listProducts()"
+                          class="paginationBtn">
+          </ngb-pagination>
+        </div>
+      </div>
+    </div>
+
+    <div class="block has-text-centered is-family-code">
+      <div class="container">
+        <span class="mr-2">Page Size</span>
+        <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
+          <option>2</option>
+          <option selected="true">5</option>
+          <option>10</option>
+          <option>20</option>
+          <option>50</option>
+        </select>
       </div>
     </div>
 
