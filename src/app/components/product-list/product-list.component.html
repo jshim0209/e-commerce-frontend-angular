@@ -28,21 +28,78 @@
 
     </div>
 
-    <nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">
-      <a class="pagination-previous is-disabled" id="previousBtn" title="This is the first page">Previous</a>
-      <a class="pagination-next" id="nextBtn">Next page</a>
+    <!-- <nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">
+      <a
+        class="pagination-previous"
+        id="previousBtn"
+        aria-label="Go To Previous Page"
+        [attr.aria-disabled]="pageNumber === 1"
+        [disabled]="pageNumber === 1"
+        (click)="onPrevious()"
+      >
+        Previous
+      </a>
+
+      <a
+        class="pagination-next"
+        id="nextBtn"
+        aria-label="Go To Next Page"
+        [attr.aria-disabled]="pageNumber === pageSize"
+        [disabled]="pageNumber === pageSize"
+        (click)="onNext()"
+      >
+        Next page
+      </a>
+
       <ul class="pagination-list">
-        <li>
-          <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
-        </li>
-        <li>
-          <a class="pagination-link" aria-label="Goto page 2">2</a>
-        </li>
-        <li>
-          <a class="pagination-link" aria-label="Goto page 3">3</a>
+        <li *ngFor="let page of pages; index as i">
+          <a
+            *ngIf="page !== -1; else more"
+            class="pagination-link"
+            [attr.aria-current]="page === current ? 'page' : null"
+            [attr.aria-label]="
+              page === current ? 'Current Page, Page ' + page : 'Go to Page ' + page
+            "
+            [class.current]="page === current"
+            tabindex="0"
+            (click)="onGoTo(page)"
+            (keyup.enter)="onGoTo(page)"
+            >{{ page }}</a
+          >
+          <ng-template #more>
+            <a class="more"> ... </a>
+          </ng-template>
         </li>
       </ul>
-    </nav>
+
+    </nav> -->
+
+    <!-- <nav class="pagination is-rounded is-small is-family-code" role="navigation" aria-label="pagination">
+      <a
+        class="pagination-previous"
+        [ngClass]="currentPage === 1 && 'pagination__button--disabled'"
+      >
+        Previous
+      </a>
+
+      <a
+        class="pagination-next"
+      >
+        Next page
+      </a>
+
+      <ul class="pagination-list">
+        <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+        <li><a class="pagination-link" aria-label="Goto page 45">2</a></li>
+        <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">3</a></li>
+        <li><a class="pagination-link" aria-label="Goto page 47">4</a></li>
+        <li><a class="pagination-link" aria-label="Goto page 86">5</a></li>
+      </ul>
+
+    </nav> -->
+
+    <!-- <app-pagination></app-pagination> -->
+
   </div>
 </section>
 

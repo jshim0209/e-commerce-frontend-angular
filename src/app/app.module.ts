@@ -9,6 +9,7 @@ import { SearchComponent } from './components/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
     NavbarComponent,
     SearchComponent,
     ProductDetailsComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

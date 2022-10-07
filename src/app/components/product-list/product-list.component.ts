@@ -34,13 +34,6 @@ export class ProductListComponent implements OnInit {
 
   }
 
-  pagination() {
-    const previousBtn = document.querySelector('#pagination-previous');
-    const currentBtn = document.querySelector('.pagination-list.is-current');
-
-    previousBtn?.classList.toggle('is-disabled');
-  }
-
   listProducts() {
 
     this.searchMode = this.route.snapshot.paramMap.has('keyword');
