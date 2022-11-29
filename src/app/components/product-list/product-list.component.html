@@ -3,20 +3,16 @@
     <div class="columns">
 
         <div *ngFor="let tempProduct of products" class="column has-text-centered is-family-code">
-
           <div class="product-box">
-
             <a routerLink="/products/{{ tempProduct.id }}">
               <img src="{{ tempProduct.imageUrl }}" class="img-responsive mb-3" alt="product image">
             </a>
-
             <a routerLink="/products/{{ tempProduct.id }}">
               <h1 class="is-size-5 title mb-3">{{ tempProduct.name }}</h1>
             </a>
-
             <div class="is-size-6" id="price">{{ tempProduct.unitPrice | currency: 'USD' }}</div>
-          </div>
 
+          </div>
         </div>
 
         <article *ngIf="products?.length == 0" class="message">
@@ -27,6 +23,35 @@
         </article>
 
     </div>
+
+    <div class="block has-text-centered is-family-code">
+      <div class="container">
+        <div class="pagination">
+          <ngb-pagination [(page)]="pageNumber"
+                          [pageSize]="pageSize"
+                          [collectionSize]="totalElements"
+                          [maxSize]="5"
+                          [boundaryLinks]="true"
+                          (pageChange)="listProducts()"
+                          class="paginationBtn">
+          </ngb-pagination>
+        </div>
+      </div>
+    </div>
+
+    <div class="block has-text-centered is-family-code">
+      <div class="container">
+        <span class="mr-2">Page Size</span>
+        <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
+          <option>2</option>
+          <option selected="true">5</option>
+          <option>10</option>
+          <option>20</option>
+          <option>50</option>
+        </select>
+      </div>
+    </div>
+
   </div>
 </section>
 
