@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     SearchComponent,
     ProductDetailsComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

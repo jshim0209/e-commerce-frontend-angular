@@ -11,6 +11,9 @@
       <div class="navbar-item">
         <app-search></app-search>
       </div>
+      <div class="navbar-item" *ngIf="!loggedIn">
+        <a routerLink="/login">Login</a>
+      </div>
     </div>
   </div>
 </nav>
