@@ -103,5 +103,7 @@
       }
     }
   },
-  "defaultProject": "E-Commerce-Frontend"
+  "cli": {
+    "analytics": false
+  }
 }

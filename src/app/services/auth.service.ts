@@ -17,7 +17,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
 
-    const authUrl = `${this.baseUrl}/auth/authenticate`;
+    const authUrl = `${this.baseUrl}/authenticate`;
     return this.httpClient.post<any>(
       authUrl,
       {

@@ -1,26 +1,42 @@
-<div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" placeholder="Email">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="password" placeholder="Password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <button class="button is-success">
-      Login
-    </button>
-  </p>
-</div>
+<section class="section" id="login">
+  <div class="container has-text-centered is-family-code">
+    <div class="colums">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="card pt-6 has-background-dark">
+          <div class="card-image">
+            <img src="../../../assets/logo.png" alt="benjamin_head" class="benjamin py-4">
+          </div>
+          <div class="card-title is-size-5 has-text-white pb-4">
+            <strong class="has-text-white title">MUSHIDDA</strong>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <form id="loginForm" [formGroup]="loginForm">
+                <div>
+                  <label class="label has-text-white is-family-code">Email</label>
+                  <input type="text" class="input is-small is-rounded is-family-code" id="email" name="email" placeholder="Email" formControlName="email">
+                  <!-- <input type="text" name="username" id="username" placeholder="Username" formControlName="username"> -->
+                  <p id="username-p" [ngClass]="isUsername ? '' : 'transparent'">* Email is required</p>
+                </div>
+                <div>
+                  <label class="label has-text-white is-family-code">Password</label>
+                  <input type="password" class="input is-small is-rounded is-family-code" id="password" name="password" placeholder="Password" formControlName="password">
+                  <!-- <input type="password" name="password" id="password" placeholder="Password" formControlName="password"> -->
+                  <p id="password-p" [ngClass]="isPassword ? '' : 'transparent'">* Password is required</p>
+                </div>
+                <p id="incorrectFields" [ngClass]="invalidCredentials ? '' : 'transparent'">* Email or password incorrect</p>
+                <input type="submit" class="button is-black has-text-weight-bold is-family-code" value="Login" (click)="login()">
+              </form>
+            </div>
+            <a routerLink="/registration" class="has-text-white has-text-weight-bold is-family-code">Create Account</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
