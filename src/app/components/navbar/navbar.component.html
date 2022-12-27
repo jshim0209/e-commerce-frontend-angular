@@ -1,29 +1,31 @@
-<nav class="navbar has-shadow">
-  <!-- logo/brand -->
-  <div class="navbar-brand">
-    <a href="/" class="navbar-item">
-      <img src="assets/logo.png" alt="site logo" style="max-height: 80px">
-    </a>
-  </div>
+<div class="hero is-fullhd is-dark">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a href="/" class="navbar-item">
+        <img src="assets/logo.png" alt="site logo" style="max-height: 60px">
+      </a>
+    </div>
 
-  <div class="navbar-menu" id="nav-links">
-    <div class="navbar-start">
-      <div class="navbar-item">
-        <app-search></app-search>
+    <div class="navbar-menu">
+      <div class="navar-start">
+        <div class="navbar-item">
+          <app-search></app-search>
+        </div>
       </div>
-      <div class="navbar-item" *ngIf="!loggedIn">
-        <a routerLink="/register">Register</a>
-      </div>
-      <div class="navbar-item" *ngIf="!loggedIn">
-        <a routerLink="/login">Login</a>
-      </div>
-      <div id="logout" *ngIf="loggedIn" (click)="logout()">
-        Logout
+      <div class="navbar-end">
+        <div class="navbar-item" *ngIf="!loggedIn">
+          <div class="buttons">
+            <a class="button is-dark" routerLink="/register"><strong>Register</strong></a>
+            <a class="button is-dark" routerLink="/login">Login</a>
+          </div>
+        </div>
+        <div class="navbar-item" id="logout" *ngIf="loggedIn" (click)="logout()">
+          <div class="button">
+            Logout
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
-
-<div class="hero is-fullhd is-dark">
+  </nav>
   <app-product-category-menu></app-product-category-menu>
 </div>

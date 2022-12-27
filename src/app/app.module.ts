@@ -12,6 +12,7 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthComponent } from './components/auth/auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SearchComponent,
     ProductDetailsComponent,
     ProductCategoryMenuComponent,
-    AuthComponent
+    AuthComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginDto } from 'src/app/models/LoginDto';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -18,7 +19,8 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private fb: UntypedFormBuilder
+    private fb: UntypedFormBuilder,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -52,6 +54,7 @@ export class AuthComponent implements OnInit {
         next: (response: any) => {
           localStorage.setItem('jwt', response.body.jwt);
           localStorage.setItem('userId', response.body.userId);
+          this.router.navigate(['/profile']);
         },
         error: (error: any) => {
           console.log(error);
@@ -68,20 +71,6 @@ export class AuthComponent implements OnInit {
           this.isPassword = true;
       }
     }
-  }
-
-  onSubmit(form: NgForm) {
-    const email = form.value.email;
-    const password = form.value.password;
-    this.authService
-      .login(email, password)
-      .subscribe({
-        next: (v) => {
-          localStorage.setItem('jwt', v.body.jwt);
-          localStorage.setItem('userId', v.body.userId);
-        },
-      });
-    form.reset();
   }
 
   isLoggedIn(){
