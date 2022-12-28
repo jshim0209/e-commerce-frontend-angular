@@ -3,22 +3,37 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CartDetailsComponent } from './cart-details/cart-details.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchComponent } from './components/search/search.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthComponent } from './components/auth/auth.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './components/profile/profile.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
-import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartDetailsComponent,
-    CartStatusComponent,
-    CheckoutComponent,
-    LoginComponent
+    ProductListComponent,
+    NavbarComponent,
+    SearchComponent,
+    ProductDetailsComponent,
+    ProductCategoryMenuComponent,
+    AuthComponent,
+    ProfileComponent,
+    CartStatusComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

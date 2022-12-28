@@ -1,0 +1,14 @@
+<div class="field has-addons">
+  <div class="control">
+    <input #myInput
+           type="text"
+           type="text"
+           class="input is-small is-family-code"
+           placeholder="Search for products..."
+           (keyup)="doSearch(myInput.value)"
+    >
+  </div>
+  <div class="control">
+    <button (click)="doSearch(myInput.value)" class="button is-small is-rounded is-family-code">Search</button>
+  </div>
+</div>

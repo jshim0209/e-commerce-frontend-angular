@@ -1,0 +1,30 @@
+<!-- breadcrubs -->
+<!-- <div class="section pt-4 pb-0">
+  <nav class="breadcrub has-arrow-separator">
+    <ul class="container">
+      <li><a href="/" class="has-text-grey">Products</a></li>
+      <li><a href="/" class="has-text-grey">Cups</a></li>
+    </ul>
+  </nav>
+</div> -->
+
+<!-- product info -->
+<section class="section">
+  <div class="container">
+    <div *ngIf="product" class="columns is-family-code is-vcentered">
+      <div class="column is-3">
+        <h1 class="is-size-4 title">{{ product.name }}</h1>
+
+      </div>
+      <div class="column is-5 has-text-centered">
+        <img src="{{ product.imageUrl }}" alt="Product Image" class="detail-img">
+      </div>
+      <div class="column is-4">
+        <div class="is-size-4 mb-4">{{ product.unitPrice | currency: 'USD' }}</div>
+        <p>{{ product.description }}</p>
+      </div>
+    </div>
+    <br><br>
+    <a routerLink="/products" class="is-size-6 title">Back to Product List</a>
+  </div>
+</section>

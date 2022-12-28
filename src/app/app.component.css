@@ -1,0 +1,11 @@
+* {
+  margin: 0px;
+}
+
+html, body {
+  margin: 0px;
+}
+
+cart:hover {
+  cursor: pointer;
+}
