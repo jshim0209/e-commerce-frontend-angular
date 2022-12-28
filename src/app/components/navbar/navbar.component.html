@@ -13,6 +13,9 @@
         </div>
       </div>
       <div class="navbar-end">
+        <div class="navbar-item">
+          <app-cart-status></app-cart-status>
+        </div>
         <div class="navbar-item" *ngIf="!loggedIn">
           <div class="buttons">
             <a class="button is-dark" routerLink="/register"><strong>Register</strong></a>

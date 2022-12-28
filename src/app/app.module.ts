@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthComponent } from './components/auth/auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     ProductDetailsComponent,
     ProductCategoryMenuComponent,
     AuthComponent,
-    ProfileComponent
+    ProfileComponent,
+    CartStatusComponent
   ],
   imports: [
     BrowserModule,
