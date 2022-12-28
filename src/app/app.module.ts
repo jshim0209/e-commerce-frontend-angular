@@ -14,6 +14,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CartStatusComponent } from './components/cart-status/cart-status.compon
     ProductCategoryMenuComponent,
     AuthComponent,
     ProfileComponent,
-    CartStatusComponent
+    CartStatusComponent,
+    CartDetailsComponent
   ],
   imports: [
     BrowserModule,
