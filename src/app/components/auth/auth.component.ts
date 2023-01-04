@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginDto } from 'src/app/models/loginDto';
 import { AuthService } from 'src/app/services/auth.service';
+import { WhitespaceValidator } from 'src/app/validators/whitespace-validator';
 
 @Component({
   selector: 'app-auth',
@@ -28,15 +29,9 @@ export class AuthComponent implements OnInit {
     this.isLoggedIn();
 
     this.loginForm = this.fb.group({
-      email: new UntypedFormControl('', [Validators.required, this.noWhitespaceValidator]),
-      password: new UntypedFormControl('', [Validators.required, this.noWhitespaceValidator]),
+      email: new UntypedFormControl('', [Validators.required, WhitespaceValidator.notOnlyWhitespace]),
+      password: new UntypedFormControl('', [Validators.required, WhitespaceValidator.notOnlyWhitespace]),
     });
-  }
-
-  noWhitespaceValidator(control: UntypedFormControl) {
-    const isWhitespace = (control.value || '').trim().length === 0;
-    const isValid = !isWhitespace;
-    return isValid ? null : { 'whitespace' : true };
   }
 
   login() {

@@ -1,0 +1,27 @@
+input {
+  width: 80%;
+}
+
+form>div {
+  margin: 10px;
+}
+
+p {
+  text-align: left;
+  margin: 8px 0 20px 5%;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 100%;
+  letter-spacing: 0.025em;
+  color: #cb5b5b;
+}
+
+.transparent {
+  visibility: hidden;
+}
+
+.card {
+  border-radius: 20px;
+}
