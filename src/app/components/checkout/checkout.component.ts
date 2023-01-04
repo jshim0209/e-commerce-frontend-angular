@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Country } from 'src/app/models/country';
+import { PaymentInfo } from 'src/app/models/payment-info';
 import { State } from 'src/app/models/state';
 import { CartService } from 'src/app/services/cart.service';
 import { CheckoutFormService } from 'src/app/services/checkout-form.service';
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { WhitespaceValidator } from 'src/app/validators/whitespace-validator';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-checkout',
@@ -16,7 +18,7 @@ import { WhitespaceValidator } from 'src/app/validators/whitespace-validator';
 export class CheckoutComponent implements OnInit {
 
   // initialize Stripe API
-  // stripe =
+  stripe = Stripe(environment.stripePublishableKey);
 
   checkoutFormGroup!: UntypedFormGroup;
 
@@ -30,6 +32,8 @@ export class CheckoutComponent implements OnInit {
   shippingAddressStates: State[] = [];
   billingAddressStates: State[] = [];
 
+  paymentInfo: PaymentInfo = new PaymentInfo();
+  cardElement: any;
   displayError: any = "";
   isDisabled: boolean = false;
 
@@ -128,7 +132,28 @@ export class CheckoutComponent implements OnInit {
   }
 
   setupStripePaymentForm() {
-    throw new Error('Method not implemented.');
+    // get a handle to stripe elements
+    var elements = this.stripe.elements();
+
+    // Create a card element ... and hide the zip-code field
+    this.cardElement = elements.create('card', { hidePostalCode: true });
+
+    // Add an instance of card UI component into the 'card-element' div
+    this.cardElement.mount('#card-element');
+
+    // Add event binding for the 'change' event on the card element
+    this.cardElement.on('change', (event: any) => {
+
+      // get a handle to card-errors element
+      this.displayError = document.getElementById('card-errors');
+
+      if (event.complete) {
+        this.displayError.textContent = "";
+      } else if (event.error) {
+        // show validation error to customer
+        this.displayError.textContent = event.error.message;
+      }
+    });
   }
 
   reviewCartDetails() {

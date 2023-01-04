@@ -1,5 +1,5 @@
-export interface PaymentInfo {
-  amount: number;
-  currency: string;
-  receiptEmail: string;
+export class PaymentInfo {
+  amount!: number;
+  currency!: string;
+  receiptEmail!: string;
 }
