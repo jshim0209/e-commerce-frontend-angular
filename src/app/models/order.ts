@@ -1,4 +1,4 @@
-export interface Order {
-  totalQuantity: number;
-  totalPrice: number;
+export class Order {
+  totalQuantity!: number;
+  totalPrice!: number;
 }
